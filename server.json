@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.jackvitick/socialync",
+  "name": "io.github.JackVitick/socialync",
   "title": "Socialync",
   "description": "Draft, schedule, and publish posts to 8 social platforms with human approval via Socialync OAuth.",
   "repository": {
