@@ -79,3 +79,14 @@ The intended workflow is draft first, publish second. Agents create drafts with 
 ## Support
 
 Questions or issues: open an issue here or email [support@socialync.io](mailto:support@socialync.io).
+
+## Follow Socialync
+
+- X: https://x.com/Socialync_io
+- - Instagram: https://www.instagram.com/socialync.io/
+  - - TikTok: https://www.tiktok.com/@socialync.io
+    - - YouTube: https://www.youtube.com/@Socialync-io
+      - - LinkedIn: https://www.linkedin.com/company/socialync
+        - - Threads: https://www.threads.com/@socialync.io
+          - - Bluesky: https://bsky.app/profile/socialync.bsky.social
+            - 
