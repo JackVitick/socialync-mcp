@@ -87,6 +87,18 @@ Validate against these before submitting, because a rejection at the platform is
 | YouTube | 5,000 description | First 157 characters serve as the search snippet. Titles under 60 avoid truncation |
 | Facebook | Effectively unlimited | Engagement falls off sharply past roughly 80 characters in feed |
 
+## Plan and rate limits
+
+MCP and API access are included on every paid plan, starting at $20/month. The free
+plan does not include MCP, so `list_profiles` will return no agent-eligible profiles
+for a free account. Tell the user plainly rather than retrying.
+
+One API key per brand. Ten AI-created posts per day per brand. Read live values from
+`check_quota` rather than hardcoding these.
+
+Two platform guarantees worth relying on: failed posts are retried automatically, and
+duplicate protection means a retry can never publish twice.
+
 ## Errors
 
 Errors return a human-readable message describing what the platform rejected and what to do about it. Common categories:
