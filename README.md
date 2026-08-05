@@ -16,7 +16,9 @@ https://mcp.socialync.io/mcp
 
 Transport: Streamable HTTP. Authentication: OAuth 2.0 with dynamic client registration. You sign in with your Socialync account in the browser; no API keys are pasted into your client.
 
-MCP access is included on the Socialync **Premium and Business plans**. [Plans and pricing](https://www.socialync.io/pricing).
+MCP and API access are included on **every paid plan**, starting at $20/month. There is no higher tier to reach in order to automate. The free plan does not include MCP. [Plans and pricing](https://www.socialync.io/pricing).
+
+Limits worth knowing: 1 API key per brand, and 10 AI-created posts per day per brand.
 
 ## Connect
 
