@@ -6,6 +6,8 @@ This MCP server lets Claude, ChatGPT, and any MCP-compatible AI agent draft, sch
 
 Every platform integration runs on the official platform API. No browser automation, no scraping, no unofficial endpoints. Your agent cannot get your account restricted on our behalf.
 
+Duplicate protection means a retry can never publish twice, and failed posts are retried automatically. Both matter when an agent is posting unattended.
+
 > **Note:** Socialync's server is hosted (remote) and closed source. This repository contains the documentation and the MCP Registry manifest only. There is nothing to install or run from here.
 
 ## Endpoint
@@ -16,7 +18,7 @@ https://mcp.socialync.io/mcp
 
 Transport: Streamable HTTP. Authentication: OAuth 2.0 with dynamic client registration. You sign in with your Socialync account in the browser; no API keys are pasted into your client.
 
-MCP and API access are included on **every paid plan**, starting at $20/month. There is no higher tier to reach in order to automate. The free plan does not include MCP. [Plans and pricing](https://www.socialync.io/pricing).
+**MCP and API access are on the free plan.** $0, no credit card, 5 posts a month across all 8 platforms. Your agent can connect and publish without anyone reaching for a card. Paid plans start at $20/month for unlimited posts and 5 connected accounts. [Plans and pricing](https://www.socialync.io/pricing).
 
 Limits worth knowing: 1 API key per brand, and 10 AI-created posts per day per brand.
 
