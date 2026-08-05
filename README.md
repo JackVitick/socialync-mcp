@@ -4,12 +4,14 @@ Official documentation and registry manifest for the **Socialync hosted MCP serv
 
 This MCP server lets Claude, ChatGPT, and any MCP-compatible AI agent draft, schedule, and publish social media posts through your own OAuth-authorized Socialync account, with human-in-the-loop approval built into the workflow.
 
+Every platform integration runs on the official platform API. No browser automation, no scraping, no unofficial endpoints. Your agent cannot get your account restricted on our behalf.
+
 > **Note:** Socialync's server is hosted (remote) and closed source. This repository contains the documentation and the MCP Registry manifest only. There is nothing to install or run from here.
 
 ## Endpoint
 
 ```
-https://socialync-mcp-ntgtgrzanq-ue.a.run.app/mcp
+https://mcp.socialync.io/mcp
 ```
 
 Transport: Streamable HTTP. Authentication: OAuth 2.0 with dynamic client registration. You sign in with your Socialync account in the browser; no API keys are pasted into your client.
@@ -23,7 +25,14 @@ MCP access is included on the Socialync **Premium and Business plans**. [Plans a
 **Claude Code:**
 
 ```bash
-claude mcp add --transport http socialync https://socialync-mcp-ntgtgrzanq-ue.a.run.app/mcp
+claude mcp add --transport http socialync https://mcp.socialync.io/mcp
+```
+
+**OpenClaw:**
+
+```bash
+openclaw mcp add socialync --url https://mcp.socialync.io/mcp --transport streamable-http
+openclaw mcp login socialync
 ```
 
 **Other MCP clients (generic config):**
@@ -33,7 +42,7 @@ claude mcp add --transport http socialync https://socialync-mcp-ntgtgrzanq-ue.a.
   "mcpServers": {
     "socialync": {
       "type": "streamable-http",
-      "url": "https://socialync-mcp-ntgtgrzanq-ue.a.run.app/mcp"
+      "url": "https://mcp.socialync.io/mcp"
     }
   }
 }
@@ -63,9 +72,19 @@ claude mcp add --transport http socialync https://socialync-mcp-ntgtgrzanq-ue.a.
 
 Text and image posts publish to Instagram, Facebook, X, LinkedIn, Threads, and Bluesky. Video posts, including TikTok and YouTube (title required), are supported through scheduled posts using media hosted in your Socialync library or a public video URL.
 
+Full reference, including recommended call order, per-platform limits, and error handling: [docs/tools.md](docs/tools.md).
+
 ## How the human stays in the loop
 
 The intended workflow is draft first, publish second. Agents create drafts with `create_post_draft`; nothing reaches a social network until the draft is approved and explicitly published or scheduled. Posts go out through OAuth connections you authorized in Socialync and can be revoked at any time from your account settings. AI assistants help you draft, schedule, and publish; they do not operate accounts you have not connected and approved.
+
+## Agent skill
+
+An OpenClaw skill wrapping this server is published on ClawHub:
+
+```bash
+openclaw skills install @jackvitick/social-media-scheduler
+```
 
 ## Links
 
