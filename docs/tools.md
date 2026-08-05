@@ -89,9 +89,14 @@ Validate against these before submitting, because a rejection at the platform is
 
 ## Plan and rate limits
 
-MCP and API access are included on every paid plan, starting at $20/month. The free
-plan does not include MCP, so `list_profiles` will return no agent-eligible profiles
-for a free account. Tell the user plainly rather than retrying.
+MCP and API access are included on the free plan. A user can sign up for $0 with no
+credit card and publish 5 posts per calendar month across all 8 platforms, with one
+brand and two months of scheduling horizon. Paid plans start at $20/month and lift the
+post cap.
+
+One publish counts as one post no matter how many platforms it targets, so five posts
+can mean up to forty platform posts a month. Plan batches with that in mind: on a free
+account, a five-platform cross-post spends one of five, not five of five.
 
 One API key per brand. Ten AI-created posts per day per brand. Read live values from
 `check_quota` rather than hardcoding these.
