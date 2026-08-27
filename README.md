@@ -95,6 +95,12 @@ openclaw mcp login socialync
 }
 ```
 
+## Claude Code plugin
+
+This repository is also a Claude Code plugin: [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) is the manifest, [`.mcp.json`](.mcp.json) adds the hosted server with no secrets, and the same three skills under [`skills/`](skills/) load. It passes `claude plugin validate .`. Setup notes, including how sign-in works: [SETUP.md](SETUP.md).
+
+Once it is listed in the Claude plugin directory, install with `claude plugin install socialync`. Until then, or to skip the plugin, add the server directly (see Claude Code under Connect above); the skills are optional guidance, the server is the product.
+
 ## Cursor and Grok Bot plugin
 
 This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent when to draft, schedule, repurpose, or inspect the queue. Submission checklist: [MARKETPLACE-SUBMIT.md](MARKETPLACE-SUBMIT.md).
