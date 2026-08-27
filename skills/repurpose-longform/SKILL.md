@@ -38,7 +38,7 @@ If `generate_content` is available on the plan, use it for a first pass, then ed
 
 Only use `publish_now` or `publish_scheduled` when the user explicitly asked to go live now and confirmed the exact content. Default is the draft flow, and default timing is scheduled, not publish-now.
 
-Stagger times if they asked for a content calendar. Stay inside `maxScheduleMonths` (currently 2).
+Stagger times if they asked for a content calendar. Stay inside `maxScheduleMonths` (2 on the free plan, 12 on paid plans).
 
 ## Quota honesty
 
