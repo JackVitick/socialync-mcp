@@ -1,6 +1,6 @@
 # Tool reference
 
-Twenty-two tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.0 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
+Twenty-two tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.1 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
 
 All write operations take a `profileId`. Get it from `list_profiles` and never assume the default, because a user may manage several brands from one account.
 
@@ -100,9 +100,10 @@ What has already shipped, with per-platform success and failure. Also the correc
 ## Plan and rate limits
 
 MCP and API access are included on the free plan. A user can sign up for $0 with no
-credit card and publish 5 posts per calendar month across all 8 platforms, with one
-brand and two months of scheduling horizon. Paid plans start at $20/month for 5
-connected accounts, lift the post cap, and extend scheduling to 12 months ahead.
+credit card and publish 5 posts per calendar month across 7 platforms (X requires a
+paid plan), with one brand and two months of scheduling horizon. Paid plans start at
+$20/month for 5 connected accounts, lift the post cap, connect X, and extend
+scheduling to 12 months ahead.
 
 One publish counts as one post no matter how many platforms it targets, so five posts
 can mean up to forty platform posts a month. Plan batches with that in mind: on a free
