@@ -6,7 +6,7 @@ compatibility: Needs an agent that can run code and write image files, plus netw
 metadata:
   author: Socialync
   version: "1.0.0"
-  homepage: https://www.socialync.io/features/mcp
+  homepage: https://www.socialync.io/go/skills-sh
 ---
 
 # Notes to carousel

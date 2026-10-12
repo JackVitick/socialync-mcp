@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Socialync
   version: "1.1.0"
-  homepage: https://www.socialync.io/features/mcp
+  homepage: https://www.socialync.io/go/skills-sh
 ---
 
 # Post through Socialync, with a yes for every post

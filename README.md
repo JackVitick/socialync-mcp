@@ -20,7 +20,7 @@ https://mcp.socialync.io/mcp
 
 Transport: Streamable HTTP. Discovery document (tools, platforms, auth, limits, as JSON): https://mcp.socialync.io/.well-known/mcp
 
-**MCP and API access are on the free plan.** $0, no credit card, 5 posts a month on 7 platforms (X is on paid plans). Your agent can connect and publish without anyone reaching for a card. Paid plans start at $20/month for unlimited posts and 5 connected accounts (Starter $20, Creator $30 for 10 accounts, Agency $99 for 100, extra accounts from $2 a month). [Plans and pricing](https://www.socialync.io/pricing).
+**MCP and API access are on the free plan.** $0, no credit card, 5 posts a month on 7 platforms (X is on paid plans). Your agent can connect and publish without anyone reaching for a card. Paid plans start at $20/month for unlimited posts and 5 connected accounts (Starter $20, Creator $30 for 10 accounts, Agency $99 for 100, extra accounts from $2 a month). [Plans and pricing](https://www.socialync.io/go/github-pricing).
 
 Limits worth knowing: 1 API key per brand, and 10 AI-created posts per day per brand on paid plans (5 on free).
 
@@ -28,7 +28,7 @@ Limits worth knowing: 1 API key per brand, and 10 AI-created posts per day per b
 
 **A) OAuth 2.1 (preferred).** Add the URL with no headers. Your client registers itself (dynamic client registration, PKCE, no client secret), opens a browser, and you sign in with your Socialync account and choose which brands the agent may manage. This is what Claude.ai, Claude Code, Cursor, ChatGPT, Google Antigravity, Gemini CLI, and Codex do on their own.
 
-**B) Bearer API key.** For clients that cannot complete a browser OAuth flow (Grok Bot, headless agents, hand-edited config files). Generate a key at https://www.socialync.io/api-keys and send `Authorization: Bearer <key>`. One key per brand, included on every plan. Never commit the key.
+**B) Bearer API key.** For clients that cannot complete a browser OAuth flow (Grok Bot, headless agents, hand-edited config files). Generate a key at https://www.socialync.io/go/github-api-keys and send `Authorization: Bearer <key>`. One key per brand, included on every plan. Never commit the key.
 
 OAuth callbacks known to work end to end (any https redirect URI plus http://localhost and http://127.0.0.1 on any port is accepted):
 
@@ -40,7 +40,7 @@ OAuth callbacks known to work end to end (any https redirect URI plus http://loc
 
 ## Connect
 
-**Claude (claude.ai):** Socialync is listed in Claude's connector directory. Open Settings, then Connectors, then Browse connectors, search Socialync and sign in. To add it by URL instead, choose "Add custom connector" and paste the endpoint above. Full walkthrough: [Socialync MCP connector guide](https://www.socialync.io/mcp-connector-guide).
+**Claude (claude.ai):** Socialync is listed in Claude's connector directory. Open Settings, then Connectors, then Browse connectors, search Socialync and sign in. To add it by URL instead, choose "Add custom connector" and paste the endpoint above. Full walkthrough: [Socialync MCP connector guide](https://www.socialync.io/go/github-setup).
 
 **Claude Code:**
 
@@ -245,8 +245,8 @@ Socialync publishes the exact content you approved and logs who approved each po
 ## Links
 
 - Website: [socialync.io](https://www.socialync.io)
-- MCP feature overview: [socialync.io/features/mcp](https://www.socialync.io/features/mcp)
-- Connector setup guide: [socialync.io/mcp-connector-guide](https://www.socialync.io/mcp-connector-guide)
+- MCP feature overview: [socialync.io/features/mcp](https://www.socialync.io/go/github)
+- Connector setup guide: [socialync.io/mcp-connector-guide](https://www.socialync.io/go/github-setup)
 - Discovery document: [socialync.io/.well-known/mcp](https://www.socialync.io/.well-known/mcp)
 - Official MCP Registry: `io.github.JackVitick/socialync`
 - Terms of Service: [socialync.io/terms-of-service](https://www.socialync.io/terms-of-service)

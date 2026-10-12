@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Socialync
   version: "1.0.0"
-  homepage: https://www.socialync.io/features/mcp
+  homepage: https://www.socialync.io/go/skills-sh
 ---
 
 # Film once, schedule a week of TikTok, Reels and Shorts
