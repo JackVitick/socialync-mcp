@@ -1,0 +1,25 @@
+{
+  "name": "socialync",
+  "owner": {
+    "name": "Socialync",
+    "email": "support@socialync.io"
+  },
+  "metadata": {
+    "description": "Socialync for Claude Code: post, schedule and review social media from your agent, with your approval on every post.",
+    "version": "1.1.0"
+  },
+  "plugins": [
+    {
+      "name": "socialync",
+      "source": "./",
+      "description": "Draft, schedule and publish to Instagram, TikTok, YouTube, Facebook, X, LinkedIn, Threads and Bluesky through the hosted Socialync MCP server, with your approval on every post. Includes recipes for a week of Shorts, a blog post into a week of posts, a weekly review and image carousels.",
+      "version": "1.1.0",
+      "author": { "name": "Socialync" },
+      "homepage": "https://www.socialync.io/features/mcp",
+      "repository": "https://github.com/JackVitick/socialync-mcp",
+      "license": "MIT",
+      "keywords": ["social-media", "scheduling", "cross-posting", "instagram", "tiktok", "youtube", "linkedin", "mcp"],
+      "category": "social-media"
+    }
+  ]
+}

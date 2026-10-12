@@ -1,5 +1,7 @@
 # Socialync MCP Server
 
+![Socialync](assets/logo.png)
+
 Official documentation, registry manifest, and Cursor plugin for the **Socialync hosted MCP server**. Socialync is a cross-posting and scheduling tool for creators: upload once, publish to TikTok, Instagram, YouTube, Facebook, X, LinkedIn, Threads, and Bluesky.
 
 This MCP server lets Claude, ChatGPT, Cursor, Google Antigravity, Gemini CLI, OpenAI Codex, Grok Bot, and any MCP-compatible AI agent draft, schedule, and publish social media posts through your own OAuth-authorized Socialync account, with human-in-the-loop approval built into the workflow. It also reads back your analytics (views, likes, comments, shares, saves, followers, and your best and worst posts), so an agent can plan next week's content from what actually performed.
@@ -38,7 +40,7 @@ OAuth callbacks known to work end to end (any https redirect URI plus http://loc
 
 ## Connect
 
-**Claude (claude.ai):** Settings, then Connectors, then "Add custom connector", and paste the endpoint URL above. Full walkthrough: [Socialync MCP connector guide](https://www.socialync.io/mcp-connector-guide).
+**Claude (claude.ai):** Socialync is listed in Claude's connector directory. Open Settings, then Connectors, then Browse connectors, search Socialync and sign in. To add it by URL instead, choose "Add custom connector" and paste the endpoint above. Full walkthrough: [Socialync MCP connector guide](https://www.socialync.io/mcp-connector-guide).
 
 **Claude Code:**
 
@@ -130,13 +132,42 @@ openclaw mcp login socialync
 
 ## Claude Code plugin
 
-This repository is also a Claude Code plugin: [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) is the manifest, [`.mcp.json`](.mcp.json) adds the hosted server with no secrets, and the same three skills under [`skills/`](skills/) load. It passes `claude plugin validate .`. Setup notes, including how sign-in works: [SETUP.md](SETUP.md).
+This repository is a Claude Code plugin and its own plugin marketplace. It adds the hosted server (`.mcp.json`, no secrets) and the skills below.
 
-Once it is listed in the Claude plugin directory, install with `claude plugin install socialync`. Until then, or to skip the plugin, add the server directly (see Claude Code under Connect above); the skills are optional guidance, the server is the product.
+    /plugin install socialync --marketplace JackVitick/socialync-mcp
+
+On Claude Code versions before 2.1.275, use two steps:
+
+    /plugin marketplace add JackVitick/socialync-mcp
+    /plugin install socialync@socialync
+
+Sign in opens in your browser the first time a Socialync tool runs. Setup notes: [SETUP.md](SETUP.md). To skip the plugin, add the server directly (see Claude Code under Connect).
+
+## Skills
+
+Six skills teach an agent to use the server well. Every one of them asks you to approve each post before it goes out.
+
+| Skill | What it does |
+|---|---|
+| [schedule-social-post](skills/schedule-social-post/SKILL.md) | Draft, schedule or publish to 8 platforms, with your yes on every post |
+| [film-once-week-of-shorts](skills/film-once-week-of-shorts/SKILL.md) | One filming session becomes a week of TikTok, Reels and Shorts |
+| [blog-to-a-week-of-posts](skills/blog-to-a-week-of-posts/SKILL.md) | One article becomes a week of LinkedIn and X posts, link in the first comment |
+| [weekly-what-worked](skills/weekly-what-worked/SKILL.md) | Weekly review from your analytics, plus next week's ideas |
+| [notes-to-carousel](skills/notes-to-carousel/SKILL.md) | Notes become a rendered image carousel for Instagram, LinkedIn and Threads |
+| [social-queue-analytics](skills/social-queue-analytics/SKILL.md) | Check, move or cancel what is scheduled, and see why a post failed |
+
+Install them:
+
+- **Claude Code:** the plugin above.
+- **Cursor, Codex, Windsurf, Gemini CLI and other agents:** `npx skills add JackVitick/socialync-mcp`
+- **OpenClaw:** `openclaw skills install @jackvitick/social-media-scheduler`
+- **Claude (web and desktop):** download a skill folder, zip it, then go to Customize, Skills, the + button, Create skill, Upload a skill. Code execution has to be on (Settings, Capabilities).
+
+The skills are optional guidance. The server works without them.
 
 ## Cursor and Grok Bot plugin
 
-This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent when to draft, schedule, repurpose, or inspect the queue. Submission checklist: [MARKETPLACE-SUBMIT.md](MARKETPLACE-SUBMIT.md).
+This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent how to draft, schedule, plan a week of posts, or inspect the queue. Submission checklist: [MARKETPLACE-SUBMIT.md](MARKETPLACE-SUBMIT.md).
 
 ## Tools
 
@@ -181,7 +212,7 @@ Bluesky reports engagement but not views, so its posts are rated on engagement a
 
 ## Example workflows
 
-Paste these into any connected agent. Naming the tool is optional; it just makes the run easier to follow.
+Paste these into any connected agent. Naming the tool is optional; it just makes the run easier to follow. Each skill above ends with a "Try it" prompt you can paste.
 
 **Plan the week from what worked**
 
@@ -205,15 +236,11 @@ Paste these into any connected agent. Naming the tool is optional; it just makes
 
 ## How the human stays in the loop
 
-The intended workflow is validate first, draft second, publish last. Agents create drafts with `create_post_draft` or `schedule_post_draft`; nothing reaches a social network until the draft is approved in the app, or until you confirm in chat and the agent calls `approve_draft`, `publish_now`, or `publish_scheduled`. Posts go out through OAuth connections you authorized in Socialync and can be revoked at any time from your account settings. AI assistants help you draft, schedule, and publish; they do not operate accounts you have not connected and approved, and there is no unattended autonomous posting mode.
+Socialync tells every connected agent to show you the exact post (platforms, text for each one, media, time) and wait for your yes in chat before it calls `publish_now`, `publish_scheduled` or `approve_draft`. Those tools are marked as destructive, so clients like Claude ask your permission before running them. The skills in this repo do the same for batches: every post shown in full and numbered, and only the numbers you approve get published. For TikTok, the agent asks who can view each video (Everyone, Friends, Followers or Only me) and never picks for you. To review in the app instead, ask for a draft: `create_post_draft` and `schedule_post_draft` save it for you to approve in Socialync, and nothing goes out until you do.
 
-## Agent skill
+For a second check run by Socialync itself, switch on the confirmation dialog in Socialync settings. Clients that support MCP elicitation then show you the post before it publishes, and a decline stops it.
 
-An OpenClaw skill wrapping this server is published on ClawHub:
-
-```bash
-openclaw skills install @jackvitick/social-media-scheduler
-```
+Socialync publishes the exact content you approved and logs who approved each post and when. Posts go out through accounts you connected and can disconnect at any time. There is no unattended posting mode.
 
 ## Links
 
