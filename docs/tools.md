@@ -1,6 +1,6 @@
 # Tool reference
 
-Twenty-two tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.1 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
+Twenty-eight tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.1 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
 
 All write operations take a `profileId`. Get it from `list_profiles` and never assume the default, because a user may manage several brands from one account.
 
@@ -35,7 +35,7 @@ Builds a draft with a publish time, for approval in the app. This is the path fo
 Polls a draft that is still processing.
 
 ### `approve_draft`
-Approves a pending draft on the user's behalf. Use it only after they confirm in chat; it is the user-confirmation gate before anything goes live.
+Approves a pending draft on the user's behalf. Use it only after they confirm in chat; it is the user-confirmation gate before anything goes live. A scheduled draft whose time has passed takes a new `scheduledFor` (confirm the new time with the user).
 
 ### `generate_content`
 AI-assisted caption drafting. Paid plans only; on the free plan write the captions yourself.
@@ -57,6 +57,9 @@ Publishes an X Article immediately, after the user has seen the headline and ful
 ### `get_scheduled_posts`
 The calendar. Always read back after writing so the user can see what was created.
 
+### `update_scheduled_post`
+Changes a scheduled post in place before it fires: the time, the caption (for every platform or per platform), the YouTube title, the first comment, or drops platforms. Pass a `groupId` to change every platform together. Prefer it over delete and recreate; it keeps the post's media and settings. Show the user the change and confirm in chat first.
+
 ### `delete_scheduled_post`
 Cancels a scheduled post, or a whole multi-platform group, before it fires.
 
@@ -71,13 +74,28 @@ Completes the upload into a single `mediaId`. Media must be finalized before it 
 ### `list_media`
 Assets the user already uploaded in Socialync. The normal path for video.
 
+### `import-claude-motion-from-url`
+Imports a video made with Claude Motion into the media library and returns a `mediaId` for `publish_scheduled`. Call it right away with the URL Claude Motion provides; the link expires within minutes.
+
 ## Analytics
 
 ### `get_analytics`
 Reach and engagement per platform, with period-over-period change.
 
 ### `get_top_posts`
-Best performers. Use this to pattern-match the next batch against real numbers instead of a guess.
+Best performers. Use this to pattern-match the next batch against real numbers instead of a guess. Video posts on Instagram, Facebook and YouTube carry a `watch` block (average watch time, share held past 3 seconds, skip rate, replays, follows); `includeRetention: true` adds retention curves.
+
+### `get_post_insights`
+One post in depth: watch time, the share still watching at 3 seconds, the retention curve and its biggest drop, YouTube traffic sources, the same post on every platform it went to, and how it compares with the user's median. Renders as an interactive retention chart in clients that support MCP Apps. Use it to explain why a video worked and what to change in the next edit.
+
+### `get_comments`
+The comments on one published post, with replies, on Instagram, YouTube, Threads, LinkedIn Company Pages and Bluesky. Use it to read audience questions and reactions, or to find a comment to answer.
+
+### `reply_to_comment`
+Replies to one comment as the user's account on Instagram, Threads, LinkedIn Company Pages or Bluesky. Public and immediate: show the user the comment and the exact reply and confirm in chat, one at a time. YouTube and X replies are sent by the user in the Socialync app. 30 replies per day.
+
+### `get_best_times`
+The days and times the user's own posts got the most engagement, per platform, in their time zone. Use it to pick a `scheduledFor`.
 
 ### `get_post_history`
 What has already shipped, with per-platform success and failure. Also the correct way to check for duplicates before retrying a publish.

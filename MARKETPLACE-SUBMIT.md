@@ -11,7 +11,7 @@ This repo is the Cursor plugin (manifest, hosted MCP config, agent skills, logo)
 - [ ] Skills have YAML `name` + `description` (the description must say when to use the skill)
 - [ ] Logo is committed at `assets/logo.png` and referenced as a relative path
 - [ ] Existing MCP registry files (`server.json`, README connect snippets) still work
-- [ ] Tested install locally in the Cursor IDE: add the MCP URL, OAuth opens, tools list shows 22 tools, `list_profiles` works, `create_post_draft` WITHOUT `publish_now`
+- [ ] Tested install locally in the Cursor IDE: add the MCP URL, OAuth opens, tools list shows 28 tools, `list_profiles` works, `create_post_draft` WITHOUT `publish_now`
 - [ ] Tested in Grok Bot: Settings, then Plugins, add name Socialync, URL `https://mcp.socialync.io/mcp`. If OAuth never starts or you see "fetch failed", use the Bearer header form from the README with a key from https://www.socialync.io/api-keys (never commit it). Confirm tools/list returns fast: a hung MCP times out ALL Grok Bot plugin discovery.
 
 ## Where to submit (do both)

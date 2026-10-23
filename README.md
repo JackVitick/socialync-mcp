@@ -171,7 +171,7 @@ This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.js
 
 ## Tools
 
-Twenty-two tools. The same list is published at https://www.socialync.io/.well-known/mcp.
+Twenty-eight tools. The same list is published at https://www.socialync.io/.well-known/mcp.
 
 | Tool | What it does |
 |---|---|
@@ -180,6 +180,7 @@ Twenty-two tools. The same list is published at https://www.socialync.io/.well-k
 | `list_audiences` | List saved audiences a post can target |
 | `list_media` | Browse media already in Socialync, with the `mediaId` used to attach video |
 | `create_media_upload` / `finalize_media_upload` | Upload images or a generated video |
+| `import-claude-motion-from-url` | Bring a Claude Motion video into your library, ready to post |
 | `check_quota` | Plan, remaining posts, per-platform daily caps, scheduling window |
 | `validate_post` | Read-only preflight: caption length, links, media, aspect ratio, video duration, connection health |
 | `create_post_draft` | Draft a text or image post (you approve in the app) |
@@ -190,9 +191,14 @@ Twenty-two tools. The same list is published at https://www.socialync.io/.well-k
 | `publish_scheduled` | Schedule a post directly, including video to TikTok and YouTube, after you confirm in chat |
 | `create_x_article_draft` / `publish_x_article_now` | Long-form X Articles (X Premium account required) |
 | `get_scheduled_posts` | List upcoming scheduled posts |
+| `update_scheduled_post` | Change a scheduled post's time, caption, title or first comment, or drop a platform |
 | `delete_scheduled_post` | Cancel a scheduled post |
 | `get_post_history` | Review published post history and status |
-| `get_top_posts` | Surface your best-performing content |
+| `get_top_posts` | Surface your best-performing content, with watch time and 3 second hold on videos |
+| `get_post_insights` | One post in depth: retention curve, biggest drop, every platform side by side (interactive chart in apps-capable clients) |
+| `get_comments` | Read a post's comments and replies |
+| `reply_to_comment` | Reply to one comment after you confirm in chat (Instagram, Threads, LinkedIn Pages, Bluesky) |
+| `get_best_times` | Your best posting windows per platform, from your own history |
 | `get_analytics` | Pull follower and engagement analytics |
 | `generate_content` | Generate platform-native captions with AI (paid plans) |
 

@@ -57,14 +57,14 @@ The default is confirmation in chat followed by `publish_now` or `publish_schedu
 
 ## Platform rules
 
-- **TikTok and YouTube** take video only, and only through the scheduled tools. YouTube needs `title` (keep it under 60 characters so it is not cut off).
+- **TikTok and YouTube** go only through the scheduled tools. YouTube takes video only. TikTok takes one video or a photo post of images, which it shows as a swipeable photo carousel with music TikTok picks. YouTube needs `title` (keep it under 60 characters so it is not cut off).
 - **Instagram** needs an image or a video. A video publishes as a Reel.
 - **Video:** one per post, scheduled tools only, attached as `mediaId` from `list_media` or as a direct public https `videoUrl`. You cannot receive a video file in chat. Ask the user to upload it in Socialync (start a post, add the video, leave the page), then call `list_media`. Uploads not attached to a post are deleted about 12 hours after upload, so schedule them in the same session.
 - **Images:** up to 10 per post through `imageUrls`, `base64Images`, or a `mediaId` from `create_media_upload` then `finalize_media_upload`. X and Bluesky publish at most 4, LinkedIn 9.
 - **Text limits:** X 280 (X counts every link as 23 characters, and emoji and most non Latin characters as 2), Bluesky 300, Threads 500 with at most 5 links, LinkedIn 3,000 (about the first 210 show before "more"), Instagram and TikTok 2,200, Facebook 8,000.
 - **Different text per platform:** put the shared text in `caption` and a platform's own version in `platformSpecificSettings`, for example `{ "twitter": { "customCaption": "..." }, "linkedin": { "customCaption": "..." } }`. Platform keys: `facebook`, `instagram`, `tiktok`, `youtube`, `linkedin`, `twitter`, `threads`, `bluesky`.
 - **First comment:** `firstComment` posts a comment under the post right after it publishes, a good home for links and hashtags. Instagram, Threads, X, YouTube, LinkedIn and Bluesky support it. Facebook and TikTok skip it. One string covers every platform, so keep it under 280 characters when X is in the post.
-- **TikTok** needs the user's own choice of who can view each video: Everyone, Friends, Followers (private TikTok accounts only) or Only me. Ask when you show the post and never pick it yourself. Pass the answer as `tiktokPrivacyLevel` (`PUBLIC_TO_EVERYONE`, `MUTUAL_FOLLOW_FRIENDS`, `FOLLOWER_OF_CREATOR` or `SELF_ONLY`). One answer can cover a batch the user approves together. Sounds cannot be added through the API, so the audio has to be in the video file.
+- **TikTok** needs the user's own choice of who can view each post: Everyone, Friends, Followers (private TikTok accounts only) or Only me. Ask when you show the post and never pick it yourself. Pass the answer as `tiktokPrivacyLevel` (`PUBLIC_TO_EVERYONE`, `MUTUAL_FOLLOW_FRIENDS`, `FOLLOWER_OF_CREATOR` or `SELF_ONLY`). One answer can cover a batch the user approves together. Sounds cannot be chosen through the API, so a video's audio has to be in the file; photo posts get TikTok's recommended music, which the creator can change in the TikTok app.
 - **X** needs a paid Socialync plan.
 - **Pinterest** is not available through MCP. The user can post pins in the Socialync app.
 
