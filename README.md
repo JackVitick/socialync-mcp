@@ -89,7 +89,13 @@ claude mcp add --transport http socialync https://mcp.socialync.io/mcp
 }
 ```
 
-**Gemini CLI:** add this to `~/.gemini/settings.json`, then run `/mcp auth socialync`.
+**Gemini CLI:** install the extension, then run `/mcp auth socialync`.
+
+```bash
+gemini extensions install https://github.com/JackVitick/socialync-mcp
+```
+
+Or add this to `~/.gemini/settings.json` yourself:
 
 ```json
 {
