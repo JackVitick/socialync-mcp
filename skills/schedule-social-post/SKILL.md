@@ -40,7 +40,7 @@ No Socialync account yet? Planning and writing need no account. Publishing needs
 
 1. `list_profiles`: every write takes a `profileId`. If there are several profiles, ask which one.
 2. `list_connections`: target only connected accounts. If one shows `requiresReconnect: true`, tell the user which account to reconnect in Socialync Settings and leave it out.
-3. `check_quota`: read `postsRemaining`, `plan`, `maxPostsPerPlatformPerDay`, `maxScheduleMonths` and `aiContentGeneration`. Plan the batch against these numbers before the first write.
+3. `check_quota`: read `postsRemaining`, `plan`, `maxPostsPerProfilePerDay` (one allowance per brand per day, shared by every platform), `maxScheduleMonths` and `aiContentGeneration`. Plan the batch against these numbers before the first write.
 
 ## Pick the tool
 
@@ -96,7 +96,7 @@ The default is confirmation in chat followed by `publish_now` or `publish_schedu
 
 ## Things you cannot do here
 
-- Edit the content of a scheduled post. Cancel it and schedule a new one (with a new yes), or edit it in the Socialync app.
+- Change a scheduled post without a new yes. `update_scheduled_post` edits the time, caption, YouTube title or first comment in place, or drops a platform, after the user has seen the change and approved it.
 - Remove a post that already published.
 - Read analytics for X or LinkedIn. Socialync collects analytics for TikTok, YouTube, Instagram, Facebook, Threads and Bluesky on paid plans.
 

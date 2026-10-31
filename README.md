@@ -166,7 +166,7 @@ Install them:
 
 - **Claude Code:** the plugin above.
 - **Cursor, Codex, Windsurf, Gemini CLI and other agents:** `npx skills add JackVitick/socialync-mcp`
-- **OpenClaw:** `openclaw skills install @jackvitick/social-media-scheduler`
+- **OpenClaw:** `openclaw skills install @jackvitick/socialync`
 - **Claude (web and desktop):** download a skill folder, zip it, then go to Customize, Skills, the + button, Create skill, Upload a skill. Code execution has to be on (Settings, Capabilities).
 
 The skills are optional guidance. The server works without them.
