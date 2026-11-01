@@ -26,10 +26,10 @@ Runs the same checks Socialync's own scheduler enforces, per platform, without s
 ## Drafting
 
 ### `create_post_draft`
-Builds a text or image draft the user approves later in the Socialync app. Use it when the user asks to save a draft or review later; immediate publishing is text and images only.
+Holds a text or image post as a pending draft without sending it. Show the user the post and call `approve_draft` on their yes in chat; the user never has to open the Socialync app. Immediate publishing is text and images only.
 
 ### `schedule_post_draft`
-Builds a draft with a publish time, for approval in the app. This is the path for video, including TikTok and YouTube (title required): attach a `mediaId` from `list_media` or a public video URL.
+Holds a post with a publish time as a pending draft without scheduling it; the user's yes in chat plus `approve_draft` schedules it. This is the path for video, including TikTok and YouTube (title required): attach a `mediaId` from `list_media` or a public video URL.
 
 ### `get_draft_status`
 Polls a draft that is still processing.

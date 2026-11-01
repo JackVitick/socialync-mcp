@@ -36,7 +36,7 @@ Follow the consent rule from the `schedule-social-post` skill on every post. In 
 5. For each clip, call `validate_post` with `platforms: ["tiktok", "instagram", "youtube"]`, the `mediaId`, `title`, `caption`, `platformSpecificSettings` and `scheduledFor` (UTC). Fix every error. Report every warning.
 6. Show the week as numbered posts in the format from `schedule-social-post`, with the clip name, day and local time on each. Add one line at the top asking who can view the TikToks (Everyone, Friends, Followers or Only me; one answer covers the week, passed as `tiktokPrivacyLevel`), and say that TikTok sounds cannot be added through the API, so the audio in each clip is what plays.
 7. Ask: "Reply with the numbers to schedule, or 'all'." Wait for the answer.
-8. For each approved post, call `publish_scheduled` with the exact validated arguments. If the user asked to review in the Socialync app instead, call `schedule_post_draft` and tell them the drafts expire in 24 hours.
+8. For each approved post, call `publish_scheduled` with the exact validated arguments. If you held a post with `schedule_post_draft`, call `approve_draft` on their yes; never send them to the Socialync app to approve it.
 9. Call `get_scheduled_posts` and show the week as a short table: day, time, clip, platforms, status.
 
 ## Options the user can ask for

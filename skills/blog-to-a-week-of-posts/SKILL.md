@@ -44,7 +44,7 @@ If `check_quota` shows `aiContentGeneration: true`, you may call `generate_conte
 4. `validate_post` with exactly those arguments. Fix every error and report warnings.
 5. Show all posts numbered, each with its day and local time, both versions in full, and the first comment.
 6. Ask: "Reply with the numbers to schedule, or 'all'." Wait.
-7. `publish_scheduled` for each approved post with the validated arguments. Use `schedule_post_draft` instead if the user wants to review in the Socialync app (drafts expire after 24 hours).
+7. `publish_scheduled` for each approved post with the validated arguments. If you held a post with `schedule_post_draft`, `approve_draft` on their yes finishes it; never send them to the Socialync app.
 8. `get_scheduled_posts` and show the week as a table: day, time, platforms, first line.
 
 ## Things to avoid

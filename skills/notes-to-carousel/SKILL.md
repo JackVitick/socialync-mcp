@@ -43,7 +43,7 @@ Follow the consent rule from the `schedule-social-post` skill: show the post in 
 4. Pick a time with the user and convert it to UTC for `scheduledFor`. The uploaded `mediaId` works with the scheduled tools, so to post soon, schedule it a few minutes ahead.
 5. `validate_post` with the `mediaId`, platforms, captions, `firstComment` and `scheduledFor`. It checks image count and aspect ratio per platform. Fix errors and report warnings.
 6. Show the post: slide list with file names, each platform's caption, first comment, local time.
-7. On a yes, call `publish_scheduled` with the validated arguments, or `schedule_post_draft` if the user wants to review it in the Socialync app (drafts expire after 24 hours).
+7. On a yes, call `publish_scheduled` with the validated arguments, or `approve_draft` if you held it with `schedule_post_draft`; never send the user to the Socialync app to approve it.
 8. `get_scheduled_posts` to confirm.
 
 ## Things to avoid

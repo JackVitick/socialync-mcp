@@ -189,8 +189,8 @@ Twenty-eight tools. The same list is published at https://www.socialync.io/.well
 | `import-claude-motion-from-url` | Bring a Claude Motion video into your library, ready to post |
 | `check_quota` | Plan, remaining posts, per-platform daily caps, scheduling window |
 | `validate_post` | Read-only preflight: caption length, links, media, aspect ratio, video duration, connection health |
-| `create_post_draft` | Draft a text or image post (you approve in the app) |
-| `schedule_post_draft` | Draft a post for a future time, text, image, or video (you approve in the app) |
+| `create_post_draft` | Hold a text or image post as a draft until you say yes in chat |
+| `schedule_post_draft` | Hold a post for a future time (text, image, or video) as a draft until you say yes in chat |
 | `get_draft_status` | Check where a draft is in the pipeline |
 | `approve_draft` | Publish a pending draft after you confirm in chat |
 | `publish_now` | Publish a text or image post immediately, after you confirm in chat |

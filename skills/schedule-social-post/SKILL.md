@@ -48,7 +48,7 @@ No Socialync account yet? Planning and writing need no account. Publishing needs
 |---|---|
 | Text or images, live now, confirmed in chat | `publish_now` |
 | Any media including video, at a future time, confirmed in chat | `publish_scheduled` |
-| To review it in the Socialync app first | `create_post_draft` (now) or `schedule_post_draft` (future). Drafts expire after 24 hours. |
+| To lock the content in before they confirm (a batch approved one by one) | `create_post_draft` (now) or `schedule_post_draft` (future), then `approve_draft` on their yes in chat. Never send them to the Socialync app; a draft nobody approves expires after 24 hours. |
 | To publish a pending draft they just approved in chat | `approve_draft` |
 | A long-form X Article (their X account needs X Premium) | `create_x_article_draft` or `publish_x_article_now` |
 | To cancel a scheduled post | `delete_scheduled_post` with `postId` (one platform) or `groupId` (the whole post), after they confirm |
