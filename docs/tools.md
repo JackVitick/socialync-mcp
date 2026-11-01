@@ -49,7 +49,7 @@ Immediate publish of a text or image post. There is no approval modal, so show t
 Schedules a post (text, image, or video) directly, after explicit confirmation in chat. Respect `maxScheduleMonths` from `check_quota`.
 
 ### `create_x_article_draft`
-Drafts a native X Article, the long-form rich-text format with a headline, for approval in the app. X Premium is required on the connected account.
+Holds a native X Article, the long-form rich-text format with a headline, as a draft until the user says yes in chat and `approve_draft` publishes it. X Premium is required on the connected account.
 
 ### `publish_x_article_now`
 Publishes an X Article immediately, after the user has seen the headline and full body and confirmed in chat.
