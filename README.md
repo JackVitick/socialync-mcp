@@ -173,7 +173,7 @@ The skills are optional guidance. The server works without them.
 
 ## Cursor and Grok Bot plugin
 
-This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent how to draft, schedule, plan a week of posts, or inspect the queue. Submission checklist: [MARKETPLACE-SUBMIT.md](MARKETPLACE-SUBMIT.md).
+This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent how to draft, schedule, plan a week of posts, or inspect the queue.
 
 ## Tools
 
