@@ -49,7 +49,7 @@ Immediate publish of a text or image post. There is no approval modal, so show t
 Schedules a post (text, image, or video) directly, after explicit confirmation in chat. Respect `maxScheduleMonths` from `check_quota`.
 
 ### `create_x_article_draft`
-Holds a native X Article, the long-form rich-text format with a headline, as a draft until the user says yes in chat and `approve_draft` publishes it. X Premium is required on the connected account.
+Holds a native X Article, the long-form rich-text format with a headline, as a draft until the user says yes in chat and `approve_draft` publishes it. Pass `scheduledFor` to publish it later. Takes links, a `coverImageUrl` and images on their own line in the markdown. X Premium is required on the connected account.
 
 ### `publish_x_article_now`
 Publishes an X Article immediately, after the user has seen the headline and full body and confirmed in chat.
@@ -80,7 +80,7 @@ Imports a video made with Claude Motion into the media library and returns a `me
 ## Analytics
 
 ### `get_analytics`
-Reach and engagement per platform, with period-over-period change.
+What was gained in the period per platform, with period-over-period change. YouTube is reported on its own, without comparisons, because its API policy does not allow derived metrics.
 
 ### `get_top_posts`
 Best performers. Use this to pattern-match the next batch against real numbers instead of a guess. Video posts on Instagram, Facebook and YouTube carry a `watch` block (average watch time, share held past 3 seconds, skip rate, replays, follows); `includeRetention: true` adds retention curves.
@@ -124,8 +124,9 @@ $20/month for 5 connected accounts, lift the post cap, connect X, and extend
 scheduling to 12 months ahead.
 
 One publish counts as one post no matter how many platforms it targets, so five posts
-can mean up to forty platform posts a month. Plan batches with that in mind: on a free
-account, a five-platform cross-post spends one of five, not five of five.
+can mean up to twenty-five platform posts a month on a free account, which connects up
+to five accounts. Plan batches with that in mind: a five-platform cross-post spends one
+of the five.
 
 One API key per brand. Up to 10 agent-created posts per day per brand on paid plans, 5
 on the free plan. `generate_content` is paid-plan only. Read live values from
