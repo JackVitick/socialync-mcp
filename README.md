@@ -119,7 +119,7 @@ codex mcp login socialync
 **OpenClaw:**
 
 ```bash
-openclaw mcp add socialync --url https://mcp.socialync.io/mcp --transport streamable-http
+openclaw mcp add socialync --url https://mcp.socialync.io/mcp --transport streamable-http --auth oauth
 openclaw mcp login socialync
 ```
 
@@ -177,7 +177,7 @@ This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.js
 
 ## Tools
 
-Twenty-eight tools. The same list is published at https://www.socialync.io/.well-known/mcp.
+Twenty-nine tools. The same list is published at https://www.socialync.io/.well-known/mcp.
 
 | Tool | What it does |
 |---|---|
@@ -207,6 +207,7 @@ Twenty-eight tools. The same list is published at https://www.socialync.io/.well
 | `get_best_times` | Your best posting windows per platform, from your own history |
 | `get_analytics` | Pull follower and engagement analytics |
 | `generate_content` | Generate platform-native captions with AI (paid plans) |
+| `find_ugc_jobs` | Find open paid UGC jobs and brand deals on the Socialync marketplace, with pay, who can apply and whether your accounts qualify |
 
 Text and image posts publish immediately to Instagram, Facebook, X, LinkedIn, Threads, and Bluesky. Video posts, including TikTok and YouTube (title required), go out as scheduled posts using media hosted in your Socialync library or a public video URL. A raw video file cannot be pasted into a chat; upload it in Socialync first.
 
@@ -216,8 +217,8 @@ Full reference, including recommended call order, per-platform limits, and error
 
 Socialync collects post and account analytics for TikTok, YouTube, Instagram, Facebook, Threads, and Bluesky, and the MCP server returns the same numbers the Socialync analytics page shows (paid plans).
 
-- `get_analytics` returns totals for views, likes, comments, shares, saves, and followers over the last week or month, the change against the previous period, an optional per-platform breakdown, and an optional daily timeseries for charts.
-- `get_top_posts` returns your posts with views, likes, comments, shares, engagement rate, and a performance status (viral, good, average, flop), sorted by engagement or by date, filterable by platform and by minimum status.
+- `get_analytics` returns the views, likes, comments, shares, and saves gained over the last week or month, your follower counts, the change against the previous period, an optional per-platform breakdown, and an optional daily timeseries for charts. YouTube is reported on its own, without comparisons, because its API policy does not allow derived metrics.
+- `get_top_posts` returns your posts with views, likes, comments, shares, engagement rate, and a status that compares each post with your own usual on that platform (viral, good, average, below_usual, or not_rated), sorted by engagement or by date, filterable by platform and by minimum status.
 - `get_post_history` returns what was posted where, with a plain reason and a retry hint for anything that failed.
 
 Bluesky reports engagement but not views, so its posts are rated on engagement alone.

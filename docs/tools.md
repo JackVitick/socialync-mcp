@@ -1,6 +1,6 @@
 # Tool reference
 
-Twenty-eight tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.1 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
+Twenty-nine tools exposed by the Socialync MCP server at `https://mcp.socialync.io/mcp`, over streamable HTTP, authenticated with OAuth 2.1 through your Socialync account (or a per-brand API key as a bearer token for clients without OAuth).
 
 All write operations take a `profileId`. Get it from `list_profiles` and never assume the default, because a user may manage several brands from one account.
 
@@ -99,6 +99,11 @@ The days and times the user's own posts got the most engagement, per platform, i
 
 ### `get_post_history`
 What has already shipped, with per-platform success and failure. Also the correct way to check for duplicates before retrying a publish.
+
+## UGC jobs
+
+### `find_ugc_jobs`
+Open paid UGC jobs (brand deals, creator gigs) on the Socialync marketplace, newest first. Each job has the pay, deal type, platforms, deliverable, who can apply, the date it was posted, the apply-by date, whether the user's connected accounts already qualify (and why not when they do not), and a link where the user applies in Socialync. Filter with `platform` or `qualifiedOnly`. Read only: it never applies for the user. On every plan, free included.
 
 ## Platform limits worth knowing at draft time
 

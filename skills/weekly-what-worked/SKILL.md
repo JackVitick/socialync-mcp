@@ -30,9 +30,9 @@ The review only reads data, so it needs no approval. Anything it leads to that p
 
 Keep it short enough to read in a minute.
 
-1. **The week in three lines:** total views, engagement and followers with the change against last week, and the platform that moved most in each direction.
+1. **The week in three lines:** total views, engagement and followers with the change against last week, and the platform that moved most in each direction. YouTube is left out of those totals and comparisons, so give its own numbers as they are, with no change against last week.
 2. **Top 3 posts:** platform, first line, views, engagement rate, status. Then what they share. Look at format (video, image, text), the type of hook, length, topic, day and time posted. Name the pattern only if at least two of the three show it.
-3. **Bottom 3 posts** with the same fields. A post with status `no_data` has no numbers yet. Leave it out of this list.
+3. **Bottom 3 posts** with the same fields. A post with status `no_data` or `not_rated` has nothing to judge it by yet. Leave it out of this list.
 4. **Failures:** each failed post with its plain reason and the fix. For `reconnect`, name the account to reconnect in Socialync Settings.
 5. **Next week:** days with nothing scheduled.
 6. **Three to five ideas for next week**, each tied to a top post: "Your Tuesday how-to clip got 4 times your usual views. Make another how-to on [topic]."
