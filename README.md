@@ -171,6 +171,17 @@ Install them:
 
 The skills are optional guidance. The server works without them.
 
+## Grok Build plugin
+
+Add the server in one line. Grok Build opens the Socialync sign in in your browser the first time a tool runs:
+
+    grok mcp add --transport http socialync https://mcp.socialync.io/mcp
+
+Or install the plugin, which adds the same server and the six skills. This repository is also a Grok Build plugin marketplace (`.grok-plugin/`):
+
+    grok plugin marketplace add JackVitick/socialync-mcp
+    grok plugin install socialync --trust
+
 ## Cursor and Grok Bot plugin
 
 This repository is also the Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`, `assets/logo.png`). Install from the Cursor Marketplace (search "Socialync") once listed, or add the MCP URL directly as above. Skills in `skills/` tell the agent how to draft, schedule, plan a week of posts, or inspect the queue.
