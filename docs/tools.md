@@ -140,6 +140,14 @@ on the free plan. `generate_content` is paid-plan only. Read live values from
 Two platform guarantees worth relying on: failed posts are retried automatically, and
 duplicate protection means a retry can never publish twice.
 
+## Read and write
+
+How each tool changes things. This follows the annotations the server sends with every tool (`readOnlyHint`, `destructiveHint`). Every tool acts only on the signed in user's own Socialync account.
+
+- **Read**, changes nothing: `list_profiles`, `list_connections`, `list_audiences`, `list_media`, `check_quota`, `find_ugc_jobs`, `validate_post`, `get_draft_status`, `get_scheduled_posts`, `get_post_history`, `get_analytics`, `get_top_posts`, `get_post_insights`, `get_comments`, `get_best_times`.
+- **Write**, creates or changes data inside the user's Socialync account and sends nothing to a social platform: `create_media_upload`, `finalize_media_upload`, `import-claude-motion-from-url`, `create_post_draft`, `schedule_post_draft`, `create_x_article_draft`, `generate_content`. The two draft tools hold the post as a pending draft until the user approves it.
+- **Sensitive write**, puts content on a social account, replies in public, or changes or deletes a scheduled post: `approve_draft`, `publish_now`, `publish_scheduled`, `publish_x_article_now`, `update_scheduled_post`, `delete_scheduled_post`, `reply_to_comment`. Ask the user every time, with the exact post, platforms and time.
+
 ## Errors
 
 Errors return a human-readable message describing what the platform rejected and what to do about it. Common categories:
