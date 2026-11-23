@@ -272,7 +272,7 @@ Socialync publishes the exact content you approved and logs who approved each po
 - MCP feature overview: [socialync.io/features/mcp](https://www.socialync.io/go/github)
 - Connector setup guide: [socialync.io/mcp-connector-guide](https://www.socialync.io/go/github-setup)
 - Discovery document: [socialync.io/.well-known/mcp](https://www.socialync.io/.well-known/mcp)
-- Official MCP Registry: `io.github.JackVitick/socialync`
+- Official MCP Registry: `io.socialync/mcp`
 - Terms of Service: [socialync.io/terms-of-service](https://www.socialync.io/terms-of-service)
 - Developer Agreement (API and MCP): [socialync.io/developer-terms](https://www.socialync.io/developer-terms)
 - Privacy Policy: [socialync.io/privacy-policy](https://www.socialync.io/privacy-policy)
